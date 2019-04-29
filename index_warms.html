@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>WAMS专题</title>
+    <!-- <script type="text/javascript" src="js/api.js"></script>     -->
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+    <script type="text/javascript" src="js/china.js" ></script>
+    <!-- <script type="text/javascript" src="js/bmap.min.js"></script> -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/top.css">
+    <script type="text/javascript" src="js/top_ten.js"></script>
+    <style type="text/css">
+          filter:alpha(opacity=50); /*支持 IE 浏览器*/
+            -moz-opacity:0.50; /*支持 FireFox 浏览器*/
+            opacity:0.50; 
+    </style>
+
+</head>
+<body style="background-color: #090913;height:2160px;width: 3840px;background-size:100% auto;height:100%;background-repeat:no-repeat;background-color:#090913;margin: 0;border: 0;padding: 0">
+    
+    <div style="height:2160px;width: 3840px;    float: left;">
+        <div id="sandiantitle" style="width:40%;float: left;margin-left: 100px;border: none;padding: 0;">
+                    <img style="line-height: 110px;float: left;"  src="images/titlepic.png" style="padding-left: 80px;">
+                    <span style="line-height: 110px;float: left;font-size: 48px;color: white;vertical-align: super;">断面阻尼比昨日与今日折线</span>
+        </div>
+        <div id="shuangzhutitle" style="float: left;margin-left: 100px;border: none;padding: 0;">
+                    <img style="line-height: 110px;float: left;"  src="images/titlepic.png" style="padding-left: 80px;">
+                    <span style="line-height: 110px;float: left;font-size: 48px;color: white;vertical-align: super;">重要断面当前运行状态监视</span>
+        </div>
+        <!-- <div id="id_scatter" style="height:970px;width: 40%;float: left;"></div>散点图 -->
+        <div id="container" style="height:970px;width: 40%;float: left;"></div>
+        <div id="double_bar" style="width:60% ;height:970px;position: relative;float: left;"></div>
+        <div id="toptitle" style="width:40%;float: left;margin-left: 100px;border: none;padding: 0;">
+                    <img style="line-height: 110px;float: left;"  src="images/titlepic.png" style="padding-left: 80px;">
+                    <span style="line-height: 110px;float: left;font-size: 48px;color: white;vertical-align: super;">日阻尼比最低的十个断面</span>
+        </div>
+        <div id="kxiantitle" style="float: left;margin-left: 100px;border: none;padding: 0;">
+                    <img style="line-height: 110px;float: left;"  src="images/titlepic.png" style="padding-left: 80px;">
+                    <span style="line-height: 110px;float: left;font-size: 48px;color: white;vertical-align: super;">重要断面日统计指标</span>
+        </div>
+        <div style="width: 100%;overflow: hidden;">
+            <div id="top_ten" style="margin: 100px;float: left;">
+                <div>
+                    <div class="alltop_style" >
+                        <div><button id="top_1" class="change" type="button" onclick="data_change_0()">甘青断面</button></div>
+                        <div class="zuni"><p id="top_1_zn" class="zuni_txt">15.245%</p></div>
+                        <div class="pl"><p id="top_1_pl" class="pl_txt">0.205Hz</p></div>
+                    </div>  
+                    <div class="alltop_style">
+                        <div><button id="top_2" class="change" type="button" onclick="data_change_1()">甘宁断面</button></div>
+                        <div class="zuni"><p id="top_2_zn" class="zuni_txt">15.903%</p></div>
+                        <div class="pl"><p id="top_2_pl" class="pl_txt">0.204Hz</p></div>
+                    </div>
+                    <div class="alltop_style">
+                        <div><button id="top_3" class="change" type="button" onclick="data_change_2()">河鱼断面</button></div>
+                        <div class="zuni"><p id="top_3_zn" class="zuni_txt">15.155%</p></div>
+                        <div class="pl"><p id="top_3_pl" class="pl_txt">0.208Hz</p></div>
+                    </div>
+                    <div class="alltop_style">
+                        <div><button id="top_4" class="change" type="button" onclick="data_change_3()">川藏联网断面</button></div>
+                        <div class="zuni"><p id="top_4_zn" class="zuni_txt">15.155%</p></div>
+                        <div class="pl"><p id="top_4_pl" class="pl_txt">0.208Hz</p></div>
+                    </div>
+                    <div class="alltop_style">
+                        <div><button id="top_5" class="change" type="button" onclick="data_change_4()">浙沪断面</button></div>
+                        <div class="zuni"><p id="top_5_zn" class="zuni_txt">15.155%</p></div>
+                        <div class="pl"><p id="top_5_pl" class="pl_txt">0.208Hz</p></div>
+                    </div>
+                </div>
+                <div style="clear: both;">
+                    <div class="alltop_style" float:>
+                        <div><button id="top_6" class="change" type="button" onclick="data_change_5()">安徽送出断面</button></div>
+                        <div class="zuni"><p id="top_6_zn" class="zuni_txt">15.155%</p></div>
+                        <div class="pl"><p id="top_6_pl" class="pl_txt">0.208Hz</p></div>
+                    </div>
+                    <div class="alltop_style">
+                        <div><button id="top_7" class="change" type="button" onclick="data_change_6()">吉黑断面</button></div>
+                        <div class="zuni"><p id="top_7_zn" class="zuni_txt">15.155%</p></div>
+                        <div class="pl"><p id="top_7_pl" class="pl_txt">0.208Hz</p></div>
+                    </div>
+                    <div class="alltop_style">
+                        <div><button id="top_8" class="change" type="button" onclick="data_change_7()">鄂湘断面</button></div>
+                        <div class="zuni"><p id="top_8_zn" class="zuni_txt">15.155%</p></div>
+                        <div class="pl"><p id="top_8_pl" class="pl_txt">0.208Hz</p></div>
+                    </div>
+                    <div class="alltop_style">
+                        <div><button id="top_9" class="change" type="button" onclick="data_change_8()">苏沪断面</button></div>
+                        <div class="zuni"><p id="top_9_zn" class="zuni_txt">15.155%</p></div>
+                        <div class="pl"><p id="top_9_pl" class="pl_txt">0.208Hz</p></div>
+                    </div>
+                    <div class="alltop_style">
+                        <div><button id="top_10" class="change" type="button" onclick="data_change_9()">敦鱼断面</button></div>
+                        <div class="zuni"><p id="top_10_zn" class="zuni_txt">15.155%</p></div>
+                        <div class="pl"><p id="top_10_pl" class="pl_txt">0.208Hz</p></div>
+                    </div>
+                </div>
+            </div>
+            <div id="k_line" style="width:60% ;height:970px;position: relative;float: right;"></div>
+        </div>
+    </div>
+
+   
+    <!-- 折线图位置 -->
+    <script type="text/javascript" src="js/line_marker.js"></script>
+   <!--  //double_bar -->
+    <script type="text/javascript" src="js/double_bar.js"></script>
+    <!-- kline -->
+    <script type="text/javascript" src="js/kline.js"></script>
+    <!-- 数据层 -->
+    <script type="text/javascript" src="js/warms_data_processing.js"></script>
+    <!--top10-->
+    <script type="text/javascript" src="js/top_ten.js"></script>
+</body>
+</html>
